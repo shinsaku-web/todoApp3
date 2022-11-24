@@ -11,7 +11,7 @@
 
 ## 画面一覧
 
-- Todo 一覧画面
-- Todo 新規登録画面
-- Todo 詳細画面
-- Todo 編集画面
+- Todo 一覧画面 : /
+- Todo 新規登録画面 : /create
+- Todo 詳細画面 : /detail/id
+- Todo 編集画面 : /edit/id

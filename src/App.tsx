@@ -1,8 +1,13 @@
+import { Layout } from "./components/Layout";
+import { Index } from "./pages";
+
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold text-green-500 underline">
-      Hello world!
-    </h1>
+    <div>
+      <Layout>
+        <Index />
+      </Layout>
+    </div>
   );
 };
 

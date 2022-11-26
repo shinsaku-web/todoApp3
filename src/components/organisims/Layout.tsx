@@ -7,7 +7,7 @@ interface Props {
 export const Layout = ({ children }: Props) => {
   return (
     <>
-      <header className="p-10 bg-yellow-700 text-white">
+      <header className="p-6 bg-yellow-700 text-white">
         <div className="flex max-w-4xl mx-auto justify-between items-center">
           <div className="text-3xl">TodoApp</div>
           <div className="flex items-center">

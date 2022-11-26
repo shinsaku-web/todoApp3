@@ -1,4 +1,4 @@
-import { InputForm } from "../InputForm";
+import { InputForm } from "../atoms/InputForm";
 
 export const TodoCreateTemplate = () => {
   const handleOnChange = () => {

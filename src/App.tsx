@@ -1,4 +1,4 @@
-import { Layout } from "./components/Layout";
+import { Layout } from "./components/organisims/Layout";
 import { IndexPage } from "./pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TodoCreatePage } from "./pages/create";

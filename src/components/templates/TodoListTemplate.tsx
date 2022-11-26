@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { InputForm } from "../InputForm";
-import { TodoItem } from "../TodoItem";
+import { InputForm } from "../atoms/InputForm";
+import { TodoItem } from "../molecules/TodoItem";
 
 export const TodoListTemplate = () => {
   const [todos, setTodos] = useState<string[]>([]);

@@ -10,36 +10,40 @@ import { TodoEditPage } from "./pages/edit";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <IndexPage />,
-  },
-  {
-    path: "/create",
-    element: <TodoCreatePage />,
-  },
-  {
-    path: "/edit/:id",
-    element: <TodoEditPage />,
-  },
-  {
-    path: "/detail/:id",
-    element: <TodoDeletePage />,
-  },
-  {
-    path: "/register",
-    element: <RegisterPage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <IndexPage />,
+      },
+      {
+        path: "/create",
+        element: <TodoCreatePage />,
+      },
+      {
+        path: "/edit/:id",
+        element: <TodoEditPage />,
+      },
+      {
+        path: "/detail/:id",
+        element: <TodoDeletePage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+    ],
   },
 ]);
 
 const App = () => {
   return (
     <>
-      <Layout>
-        <RouterProvider router={router} />
-      </Layout>
+      <RouterProvider router={router} />
     </>
   );
 };

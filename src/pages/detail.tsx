@@ -6,9 +6,14 @@ import { TodoType } from "../types/TodoType";
 export const TodoDetailPage = () => {
   const [todo, setTodo] = useState<TodoType | null>(null);
   const fetchTodo = async () => {
-    const response = await fetch(SERVER_BASE_PATH + "/todos/1");
-    const data = await response.json();
-    setTodo(data);
+    try {
+      const response = await fetch(SERVER_BASE_PATH + "/todos/1");
+      const data = await response.json();
+      setTodo(data);
+    } catch (error) {
+      setTodo(null);
+      console.error(error);
+    }
   };
 
   useEffect(() => {

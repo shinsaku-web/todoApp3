@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SERVER_BASE_PATH } from "../constants/constants";
 import { TodoType } from "../types/TodoType";
 
 export const useTodos = () => {
@@ -8,6 +9,10 @@ export const useTodos = () => {
 
   const navigateToCreate = () => {
     navigate("/create");
+  };
+
+  const navigateToDetail = (id: number) => {
+    navigate(`/detail/${id}`);
   };
 
   const handleEditTodo = () => {
@@ -19,7 +24,7 @@ export const useTodos = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch("http://localhost:3000/todos");
+      const response = await fetch(SERVER_BASE_PATH + "/todos");
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -35,6 +40,7 @@ export const useTodos = () => {
   return {
     todos,
     navigateToCreate,
+    navigateToDetail,
     handleEditTodo,
     handleDeleteTodo,
   };

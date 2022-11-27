@@ -1,15 +1,21 @@
 import { useTodos } from "../../hooks/useTodos";
 import { Button } from "../atoms/Button";
+import { Heading } from "../atoms/Heading";
 import { InputForm } from "../atoms/InputForm";
 import { TodoItem } from "../molecules/TodoItem";
 
 export const TodoListTemplate = () => {
-  const { todos, navigateToCreate, handleEditTodo, handleDeleteTodo } =
-    useTodos();
+  const {
+    todos,
+    navigateToCreate,
+    navigateToDetail,
+    handleEditTodo,
+    handleDeleteTodo,
+  } = useTodos();
 
   return (
     <>
-      <h1 className="text-center text-3xl font-bold">TodoList</h1>
+      <Heading label="TodoList" />
       <div className="flex items-center mt-10 justify-around">
         <Button label="Create" onClick={navigateToCreate} />
       </div>
@@ -24,6 +30,7 @@ export const TodoListTemplate = () => {
           <TodoItem
             key={todo.id}
             label={todo.title}
+            onClickDetailIcon={() => navigateToDetail(todo.id)}
             onClickEditIcon={handleEditTodo}
             onClickTrashIcon={handleDeleteTodo}
           />

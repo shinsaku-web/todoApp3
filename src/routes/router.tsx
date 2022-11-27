@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { TodoCreatePage } from "../pages/create";
 import { LoginPage } from "../pages/login";
 import { RegisterPage } from "../pages/register";
-import { TodoDeletePage } from "../pages/delete";
+import { TodoDetailPage } from "../pages/detail";
 import { TodoEditPage } from "../pages/edit";
 
 export const router = createBrowserRouter([
@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/detail/:id",
-        element: <TodoDeletePage />,
+        element: <TodoDetailPage />,
       },
       {
         path: "/register",

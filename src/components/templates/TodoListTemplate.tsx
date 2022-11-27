@@ -1,23 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTodos } from "../../hooks/useTodos";
+import { TodoType } from "../../types/TodoType";
 import { Button } from "../atoms/Button";
 import { InputForm } from "../atoms/InputForm";
 import { TodoItem } from "../molecules/TodoItem";
 
 export const TodoListTemplate = () => {
-  const [todos, setTodos] = useState<string[]>([]);
-  const navigate = useNavigate();
-
-  const navigateToCreate = () => {
-    navigate("/create");
-  };
-
-  const handleEditTodo = () => {
-    console.log("edit");
-  };
-  const handleDeleteTodo = () => {
-    console.log("delete");
-  };
+  const { todos, navigateToCreate, handleEditTodo, handleDeleteTodo } =
+    useTodos();
 
   return (
     <>
@@ -34,8 +25,8 @@ export const TodoListTemplate = () => {
       <ul className="space-y-4 pt-10">
         {todos.map((todo) => (
           <TodoItem
-            key={todo}
-            label={""}
+            key={todo.id}
+            label={todo.title}
             onClickEditIcon={handleEditTodo}
             onClickTrashIcon={handleDeleteTodo}
           />

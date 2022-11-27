@@ -24,7 +24,6 @@ export const TodoListTemplate = () => {
           placeholder="search todo"
           // value="search value"
           onChange={() => console.log("aaa")}
-          onKeyDown={() => console.log("bbb")}
         />
       </div>
       <ul className="space-y-4 pt-10">

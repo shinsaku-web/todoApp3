@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../atoms/Button";
+import { Heading } from "../atoms/Heading";
 import { InputForm } from "../atoms/InputForm";
 
 export const TodoCreateTemplate = () => {
@@ -14,7 +15,7 @@ export const TodoCreateTemplate = () => {
   };
   return (
     <>
-      <h1>Create Todo</h1>
+      <Heading label="Create Todo" />
       <div className="flex items-center mt-10 justify-around">
         <Button label="Top" onClick={navigateToTop} />
       </div>

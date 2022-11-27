@@ -10,6 +10,10 @@ export const useTodos = () => {
     navigate("/create");
   };
 
+  const navigateToDetail = (id: number) => {
+    navigate(`/detail/${id}`);
+  };
+
   const handleEditTodo = () => {
     console.log("edit");
   };
@@ -35,6 +39,7 @@ export const useTodos = () => {
   return {
     todos,
     navigateToCreate,
+    navigateToDetail,
     handleEditTodo,
     handleDeleteTodo,
   };

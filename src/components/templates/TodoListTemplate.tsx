@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTodos } from "../../hooks/useTodos";
-import { TodoType } from "../../types/TodoType";
 import { Button } from "../atoms/Button";
 import { InputForm } from "../atoms/InputForm";
 import { TodoItem } from "../molecules/TodoItem";

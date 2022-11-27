@@ -1,11 +1,16 @@
 import { Heading } from "../atoms/Heading";
 
-export const TodoDetailTemplate = () => {
+interface Props {
+  title: string;
+  contents: string;
+}
+
+export const TodoDetailTemplate = ({ title, contents }: Props) => {
   return (
     <>
-      <Heading label="TodoList" />
+      <Heading label={title} />
       <div className="mt-10">
-        <p>detailが入ります</p>
+        <p>{contents}</p>
       </div>
     </>
   );

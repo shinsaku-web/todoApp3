@@ -6,7 +6,7 @@ interface Props {
 export const Button = ({ label, onClick }: Props) => {
   return (
     <button
-      className="cursor-pointer py-2 min-w-[100px] rounded font-bold bg-yellow-700 text-white"
+      className="cursor-pointer py-2 px-4 min-w-[100px] rounded font-bold bg-yellow-700 text-white"
       type="button"
       onClick={onClick}
     >

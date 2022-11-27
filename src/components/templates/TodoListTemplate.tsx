@@ -34,7 +34,7 @@ export const TodoListTemplate = () => {
             label={todo.title}
             onClickDetailIcon={() => navigateToDetail(todo.id)}
             onClickEditIcon={() => navigateToEdit(todo.id)}
-            onClickTrashIcon={handleDeleteTodo}
+            onClickTrashIcon={() => handleDeleteTodo(todo.id)}
           />
         ))}
       </ul>

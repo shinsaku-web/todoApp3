@@ -24,7 +24,6 @@ export const TodoListTemplate = () => {
           placeholder="search todo"
           // value="search value"
           onChange={() => console.log("aaa")}
-          onKeyDown={() => console.log("bbb")}
         />
       </div>
       <ul className="space-y-4 pt-10">
@@ -34,7 +33,7 @@ export const TodoListTemplate = () => {
             label={todo.title}
             onClickDetailIcon={() => navigateToDetail(todo.id)}
             onClickEditIcon={() => navigateToEdit(todo.id)}
-            onClickTrashIcon={handleDeleteTodo}
+            onClickTrashIcon={() => handleDeleteTodo(todo.id)}
           />
         ))}
       </ul>

@@ -19,8 +19,18 @@ export const useTodos = () => {
     navigate(`/edit/${id}`);
   };
 
-  const handleDeleteTodo = () => {
-    console.log("delete");
+  const handleDeleteTodo = async (id: number) => {
+    try {
+      const response = await fetch(SERVER_BASE_PATH + "/todos/" + id, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error("delete failed");
+      }
+      fetchTodos();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const fetchTodos = async () => {

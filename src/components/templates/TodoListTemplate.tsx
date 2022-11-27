@@ -9,7 +9,7 @@ export const TodoListTemplate = () => {
     todos,
     navigateToCreate,
     navigateToDetail,
-    handleEditTodo,
+    navigateToEdit,
     handleDeleteTodo,
   } = useTodos();
 
@@ -33,7 +33,7 @@ export const TodoListTemplate = () => {
             key={todo.id}
             label={todo.title}
             onClickDetailIcon={() => navigateToDetail(todo.id)}
-            onClickEditIcon={handleEditTodo}
+            onClickEditIcon={() => navigateToEdit(todo.id)}
             onClickTrashIcon={handleDeleteTodo}
           />
         ))}

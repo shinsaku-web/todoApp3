@@ -19,3 +19,8 @@
 - Todo 編集画面 : /edit/id
 - ログイン画面 : /login
 - 会員登録画面 : /register
+
+##　追加
+
+- api は 1 つのファイルにまとめる
+- hook も useTodo のみ、そこに CRUD 処理を全てまとめる

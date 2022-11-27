@@ -15,9 +15,10 @@ export const useTodos = () => {
     navigate(`/detail/${id}`);
   };
 
-  const handleEditTodo = () => {
-    console.log("edit");
+  const navigateToEdit = (id: number) => {
+    navigate(`/edit/${id}`);
   };
+
   const handleDeleteTodo = () => {
     console.log("delete");
   };
@@ -41,7 +42,7 @@ export const useTodos = () => {
     todos,
     navigateToCreate,
     navigateToDetail,
-    handleEditTodo,
+    navigateToEdit,
     handleDeleteTodo,
   };
 };

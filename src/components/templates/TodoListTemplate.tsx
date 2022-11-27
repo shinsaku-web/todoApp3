@@ -22,7 +22,7 @@ export const TodoListTemplate = () => {
       <div className="pt-10">
         <InputForm
           placeholder="search todo"
-          value="search value"
+          // value="search value"
           onChange={() => console.log("aaa")}
           onKeyDown={() => console.log("bbb")}
         />

@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteTodo } from "../apis/todoApi";
-import { SERVER_BASE_PATH } from "../constants/constants";
+import { addTodo, deleteTodo, getTodos, updateTodo } from "../apis/todoApi";
 import { TodoType } from "../types/TodoType";
 
 export const useTodos = () => {
-  const [todos, setTodos] = useState<TodoType[]>([]);
+  const [originTodos, setOriginTodos] = useState<TodoType[]>([]);
   const navigate = useNavigate();
 
-  const navigateToCreate = () => {
-    navigate("/create");
+  // add
+  const handleAddTodo = async (todo: Omit<TodoType, "id">) => {
+    const res = await addTodo(todo);
+    if (res) {
+      navigate("/");
+    }
   };
 
-  const navigateToDetail = (id: number) => {
-    navigate(`/detail/${id}`);
+  //update
+  const handleUpdateTodo = async (id: number, todo: Omit<TodoType, "id">) => {
+    const res = await updateTodo(id, todo);
+    if (res) {
+      navigate(`/`);
+    }
   };
 
-  const navigateToEdit = (id: number) => {
-    navigate(`/edit/${id}`);
-  };
-
+  //delete
   const handleDeleteTodo = async (id: number) => {
     const res = await deleteTodo(id);
     if (res) {
@@ -27,15 +31,13 @@ export const useTodos = () => {
     }
   };
 
+  // fetch
   const fetchTodos = async () => {
-    try {
-      const response = await fetch(SERVER_BASE_PATH + "/todos");
-      const data = await response.json();
-      setTodos(data);
-    } catch (error) {
-      setTodos([]);
-      console.error(error);
+    const res = await getTodos();
+    if (!res) {
+      return;
     }
+    setOriginTodos(res);
   };
 
   useEffect(() => {
@@ -43,10 +45,9 @@ export const useTodos = () => {
   }, []);
 
   return {
-    todos,
-    navigateToCreate,
-    navigateToDetail,
-    navigateToEdit,
+    originTodos,
+    handleAddTodo,
+    handleUpdateTodo,
     handleDeleteTodo,
   };
 };

@@ -1,16 +1,17 @@
 import { Heading } from "../../atoms/Heading";
+import { useTodoDetailTemplate } from "./useTodoDetailTemplate";
 
-interface Props {
-  title: string;
-  contents: string;
-}
+export const TodoDetailTemplate = () => {
+  const { todo } = useTodoDetailTemplate();
 
-export const TodoDetailTemplate = ({ title, contents }: Props) => {
+  if (!todo) {
+    return <p className="text-center">コンテンツはありません</p>;
+  }
   return (
     <>
-      <Heading label={title} />
+      <Heading label={todo.title} />
       <div className="mt-10 mx-auto max-w-lg">
-        <p className="p-4 border border-gray-200">{contents}</p>
+        <p className="p-4 border border-gray-200">{todo.contents}</p>
       </div>
     </>
   );

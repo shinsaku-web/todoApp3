@@ -16,6 +16,8 @@ export const TodoEditTemplate = () => {
     handleChangeContents,
   } = useTodoEditTemplate(originTodos);
 
+  console.log(todo);
+
   return (
     <>
       <Heading label="Edit Todo" />

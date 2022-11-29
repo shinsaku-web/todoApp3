@@ -1,16 +1,15 @@
-import { useTodoCreate } from "../../hooks/useTodoCreate";
-import { Button } from "../atoms/Button";
-import { Heading } from "../atoms/Heading";
-import { InputForm } from "../atoms/InputForm";
-import { TextArea } from "../atoms/TextArea";
+import { useTodoCreateTemplate } from "./useTodoCreateTemplate";
+import { Button } from "../../atoms/Button";
+import { Heading } from "../../atoms/Heading";
+import { InputForm } from "../../atoms/InputForm";
+import { TextArea } from "../../atoms/TextArea";
+import { useTodos } from "../../../hooks/useTodos";
 
 export const TodoCreateTemplate = () => {
-  const {
-    navigateToTop,
-    handleChangeTitle,
-    handleChangeContents,
-    handleSubmit,
-  } = useTodoCreate();
+  const { todo, navigateToTop, handleChangeTitle, handleChangeContents } =
+    useTodoCreateTemplate();
+
+  const { handleAddTodo } = useTodos();
 
   return (
     <>
@@ -31,7 +30,7 @@ export const TodoCreateTemplate = () => {
         />
       </div>
       <div className="flex items-center mt-6 justify-around">
-        <Button label="Create New Todo" onClick={handleSubmit} />
+        <Button label="Create New Todo" onClick={() => handleAddTodo(todo)} />
       </div>
     </>
   );

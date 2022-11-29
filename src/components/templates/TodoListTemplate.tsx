@@ -1,4 +1,4 @@
-import { useTodos } from "../../hooks/useTodos";
+import { useTodoList } from "../../hooks/useTodoList";
 import { Button } from "../atoms/Button";
 import { Heading } from "../atoms/Heading";
 import { InputForm } from "../atoms/InputForm";
@@ -11,7 +11,7 @@ export const TodoListTemplate = () => {
     navigateToDetail,
     navigateToEdit,
     handleDeleteTodo,
-  } = useTodos();
+  } = useTodoList();
 
   return (
     <>

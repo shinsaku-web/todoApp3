@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteTodo } from "../../../apis/todoApi";
-import { SERVER_BASE_PATH } from "../../../constants/constants";
+import { deleteTodo, getTodos } from "../../../apis/todoApi";
 import { TodoType } from "../../../types/TodoType";
 
 export const useTodoListTemplate = () => {
@@ -28,14 +27,12 @@ export const useTodoListTemplate = () => {
   };
 
   const fetchTodos = async () => {
-    try {
-      const response = await fetch(SERVER_BASE_PATH + "/todos");
-      const data = await response.json();
-      setTodos(data);
-    } catch (error) {
+    const res = await getTodos();
+    if (!res) {
       setTodos([]);
-      console.error(error);
+      return;
     }
+    setTodos(res);
   };
 
   useEffect(() => {

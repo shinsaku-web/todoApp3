@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteTodo } from "../apis/todoApi";
-import { SERVER_BASE_PATH } from "../constants/constants";
-import { TodoType } from "../types/TodoType";
+import { deleteTodo } from "../../../apis/todoApi";
+import { SERVER_BASE_PATH } from "../../../constants/constants";
+import { TodoType } from "../../../types/TodoType";
 
-export const useTodoList = () => {
+export const useTodoListTemplate = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import { Heading } from "../atoms/Heading";
+import { Heading } from "../../atoms/Heading";
 
 interface Props {
   title: string;

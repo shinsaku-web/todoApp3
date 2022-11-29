@@ -1,8 +1,8 @@
-import { useTodoList } from "../../hooks/useTodoList";
-import { Button } from "../atoms/Button";
-import { Heading } from "../atoms/Heading";
-import { InputForm } from "../atoms/InputForm";
-import { TodoItem } from "../molecules/TodoItem";
+import { useTodoListTemplate } from "./useTodoListTemplate";
+import { Button } from "../../atoms/Button";
+import { Heading } from "../../atoms/Heading";
+import { InputForm } from "../../atoms/InputForm";
+import { TodoItem } from "../../molecules/TodoItem";
 
 export const TodoListTemplate = () => {
   const {
@@ -11,7 +11,7 @@ export const TodoListTemplate = () => {
     navigateToDetail,
     navigateToEdit,
     handleDeleteTodo,
-  } = useTodoList();
+  } = useTodoListTemplate();
 
   return (
     <>

@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { SERVER_BASE_PATH } from "../../../constants/constants";
 import { TodoType } from "../../../types/TodoType";
 
-export const useTodoEditTemplate = () => {
+export const useTodoEditTemplate = (originTodos: TodoType[]) => {
   const { id } = useParams();
+  const numberID = Number(id);
+  const originTodo = originTodos.filter((todo) => todo.id === numberID)[0];
+
   const [todo, setTodo] = useState<Omit<TodoType, "id">>({
-    title: "",
-    contents: "",
-    user: 1,
+    title: originTodo?.title || "",
+    contents: originTodo?.contents || "",
+    user: originTodo?.user || 1,
   });
 
   const navigate = useNavigate();
@@ -29,46 +31,12 @@ export const useTodoEditTemplate = () => {
       contents: newContents,
     }));
   };
-  const handleSubmit = async () => {
-    try {
-      const response = await fetch(SERVER_BASE_PATH + "/todos/" + id, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(todo),
-      });
-      if (!response.ok) {
-        throw new Error("エラー発生");
-      }
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const fetchTodo = async () => {
-    try {
-      const response = await fetch(SERVER_BASE_PATH + "/todos/" + id);
-      const data = await response.json();
-      setTodo((prev) => ({
-        ...prev,
-        ...data,
-      }));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchTodo();
-  }, []);
 
   return {
+    numberID,
     todo,
     navigateToTop,
     handleChangeTitle,
     handleChangeContents,
-    handleSubmit,
   };
 };

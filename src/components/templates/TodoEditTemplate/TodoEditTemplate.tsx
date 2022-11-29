@@ -1,3 +1,4 @@
+import { useTodos } from "../../../hooks/useTodos";
 import { Button } from "../../atoms/Button";
 import { Heading } from "../../atoms/Heading";
 import { InputForm } from "../../atoms/InputForm";
@@ -5,13 +6,15 @@ import { TextArea } from "../../atoms/TextArea";
 import { useTodoEditTemplate } from "./useTodoEditTemplate";
 
 export const TodoEditTemplate = () => {
+  const { originTodos, handleUpdateTodo } = useTodos();
+
   const {
+    numberID,
     todo,
     navigateToTop,
     handleChangeTitle,
     handleChangeContents,
-    handleSubmit,
-  } = useTodoEditTemplate();
+  } = useTodoEditTemplate(originTodos);
 
   return (
     <>
@@ -34,7 +37,10 @@ export const TodoEditTemplate = () => {
         />
       </div>
       <div className="flex items-center mt-6 justify-around">
-        <Button label="Edit Todo" onClick={handleSubmit} />
+        <Button
+          label="Edit Todo"
+          onClick={() => handleUpdateTodo(numberID, todo)}
+        />
       </div>
     </>
   );
